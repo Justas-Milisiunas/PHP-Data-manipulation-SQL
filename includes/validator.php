@@ -12,7 +12,7 @@ class validator
         'not_empty' => "[a-z0-9A-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+", // bet kokia reikšmė, kuri prasideda raide arba skaitmeniu
         'words' => "^[A-Za-ząčęėįšųūžĄČĘĖĮŠŲŪŽ]+[A-Za-ząčęėįšųūžĄČĘĖĮŠŲŪŽ \\s]*\$", // žodžiai
         'phone' => "^[0-9]{9,14}\$",
-        'name' => "/^[0-9a-z A-ZčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/"
+        'name' => "/^[0-9a-z A-ZčęėįšųūžĄČĘĖĮŠŲŪŽ,.-]+$/"
         /* BE ŠIŲ FORMATŲ DAR GALIMA NAUDOTI STANDARTINIUS:
          * email,
          * int,
@@ -22,8 +22,37 @@ class validator
          * url*/
     );
 
-    public function validate($item, $type, $maxLength)
+    public function validate($item, $type, $maxLength = 0)
     {
+        $filter = false;
+        switch($type) {
+            case 'email':
+                $item = substr($item, 0, 254);
+                $filter = FILTER_VALIDATE_EMAIL;
+                return ($filter === false) ? false : filter_var($item, $filter) !== false ? true : false;
+                break;
+            case 'int':
+                $filter = FILTER_VALIDATE_INT;
+                return ($filter === false) ? false : filter_var($item, $filter) !== false ? true : false;
+                break;
+            case 'float':
+                $filter = FILTER_VALIDATE_FLOAT;
+                return ($filter === false) ? false : filter_var($item, $filter) !== false ? true : false;
+                break;
+            case 'boolean':
+                $filter = FILTER_VALIDATE_BOOLEAN;
+                return ($filter === false) ? false : filter_var($item, $filter) !== false ? true : false;
+                break;
+            case 'ip':
+                $filter = FILTER_VALIDATE_IP;
+                return ($filter === false) ? false : filter_var($item, $filter) !== false ? true : false;
+                break;
+            case 'url':
+                $filter = FILTER_VALIDATE_URL;
+                return ($filter === false) ? false : filter_var($item, $filter) !== false ? true : false;
+                break;
+        }
+
         return (!empty($item) && strlen($item) > 0 && strlen($item) <= $maxLength && preg_match($this->regexes[$type], $item));
     }
 

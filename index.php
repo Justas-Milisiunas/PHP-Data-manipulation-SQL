@@ -10,14 +10,14 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="styles/js/bootstrap.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="includes/main.js"></script>
 </head>
 <body>
 <div>
     <?php
     include "config.php";
     include "includes/mysql.php";
-    include "includes/nav.php";
+    include "templates/nav.php";
     $module = '';
     if (isset($_GET['module'])) {
         $module = mysql::escape($_GET['module']);
