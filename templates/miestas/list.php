@@ -1,8 +1,8 @@
 <div class="container">
-    <h2>Miestu sarasas</h2>
+    <h2>Miestų sąrašas</h2>
     <?php if (isset($_GET['error']) && $_GET['error'] == 2) { ?>
         <div class="alert alert-danger" role="alert">
-            Miestas nebuvo pasalintas. Pirma reikia pasalinti to miesto parduotuves.
+            Miestas nebuvo pašalintas. Pirma reikia pašalinti to miesto parduotuves.
         </div>
     <?php } ?>
     <table class="table">
@@ -11,7 +11,7 @@
             <th>Pavadinimas</th>
             <th style="text-align: right">
                 <a href="index.php?module=miestas&action=add">
-                    <button type="button" class="btn btn-success">Prideti</button>
+                    <button type="button" class="btn btn-success">Pridėti</button>
                 </a>
             </th>
         </tr>
@@ -27,7 +27,7 @@ foreach ($data as $item) {
                     <button type="button" class="btn btn-warning">Readaguoti</button>
                   </a>
                   <a href='#' onclick="showConfirmDialog('{$module}', '{$item['id_MIESTAS']}'); return false;">
-                    <button type="button" class="btn btn-danger">Pasalinti</button>
+                    <button type="button" class="btn btn-danger">Pašalinti</button>
                   </a>  
                 </td>
             </tr>
@@ -36,9 +36,7 @@ foreach ($data as $item) {
 ?>
         </tbody>
     </table>
-    <div class="container-fluid" style="display: flex; justify-content: center;">
-        <?php include 'templates/paging.php'?>
-    </div>
+    <?php include 'templates/paging.php'?>
 </div>
 
 

@@ -10,6 +10,6 @@
             <label for="name">Miesto pavadinimas:</label>
             <input type="text" class="form-control" id="pavadinimas" name="pavadinimas" value="<?php echo (isset($data['pavadinimas']) ? $data['pavadinimas'] : ''); ?>">
         </div>
-        <button type="submit" class="btn btn-success" name="submit" value="Issaugoti">Issaugoti</button>
+        <button type="submit" class="btn btn-success" name="submit" value="Issaugoti">Išsaugoti</button>
     </form>
 </div>

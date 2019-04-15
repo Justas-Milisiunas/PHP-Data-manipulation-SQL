@@ -2,8 +2,6 @@
 
 include 'services/miestas.php';
 $miestas = new miestas();
-$data = $miestas->getCities();
-
 
 // suskaičiuojame bendrą įrašų kiekį
 $elementCount = $miestas->getCitiesCount();
