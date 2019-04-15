@@ -2,23 +2,35 @@
 
 if (!empty($_POST['submit'])) {
     include "includes/validator.php";
-    $validator = new validator();
-    $nameErr = $validator->validate($_POST['pavadinimas'], "name", 20);
-    $weightErr = $validator->validate($_POST['svoris'], "float");
-    $valueErr = $validator->validate($_POST['verte'], "float");
+    include 'services/zaislas.php';
+    $zaislasService = new zaislas();
 
-    if ($nameErr && $weightErr && $valueErr) {
-        $zaislas = $_POST;
+    for($i = 0; $i < count($_POST['pavadinimas']); $i++)
+    {
+        if($i == 1)
+            continue;
 
-        include 'services/zaislas.php';
-        $zaislasService = new zaislas();
-        $zaislasService->insertToy($zaislas);
+        $validator = new validator();
+        $nameErr = $validator->validate($_POST['pavadinimas'][$i], "name", 20);
+        $weightErr = $validator->validate($_POST['svoris'][$i], "float");
+        $valueErr = $validator->validate($_POST['verte'][$i], "float");
 
-        header("Location: index.php?module=zaislas&action=list");
-    } else {
-        $data = $_POST;
-        $_GET['error'] = 1;
+
+
+        if (!($nameErr && $weightErr)) {
+            $_GET['error'] = 1;
+            break;
+        }
+
+        $toy['pavadinimas'] = $_POST['pavadinimas'][$i];
+        $toy['svoris'] = $_POST['svoris'][$i];
+        $toy['verte'] = $_POST['verte'][$i];
+
+        $zaislasService->insertToy($toy);
     }
+
+    if(!isset($_GET['error']))
+        header("Location: index.php?module=zaislas&action=list");
 }
 
 include 'templates/zaislas/form.php';

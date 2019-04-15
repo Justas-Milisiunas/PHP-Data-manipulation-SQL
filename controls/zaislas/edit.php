@@ -6,17 +6,19 @@ $data = '';
 if (!empty($_POST['submit'])) {
     include "includes/validator.php";
     $validator = new validator();
-    $nameErr = $validator->validate($_POST['pavadinimas'], "name", 20);
-    $weightErr = $validator->validate($_POST['svoris'], "float");
-    $valueErr = $validator->validate($_POST['verte'], "float");
+    $nameErr = $validator->validate($_POST['pavadinimas'][0], "name", 20);
+    $weightErr = $validator->validate($_POST['svoris'][0], "float");
+    $valueErr = $validator->validate($_POST['verte'][0], "float");
 
 //    var_dump($nameErr);
 //    var_dump($weightErr);
 //    var_dump($valueErr);
 
     if ($nameErr && $weightErr && $valueErr) {
-        $zaislas = $_POST;
         $zaislas['id'] = $id;
+        $zaislas['pavadinimas'] = $_POST['pavadinimas'][0];
+        $zaislas['svoris'] = $_POST['svoris'][0];
+        $zaislas['verte'] = $_POST['verte'][0];
 
         $result = $zaislasService->updateToy($zaislas);
 
