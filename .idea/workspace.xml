@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1771e675-2b2a-4473-9427-0e8ab8311be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controls/miestas/add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controls/miestas/delete.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controls/miestas/edit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controls/miestas/list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/paging.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/validator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/miestas.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/miestas/form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/paging.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/employees.php" beforeDir="false" afterPath="$PROJECT_DIR$/services/employees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/miestas/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/miestas/list.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,33 +137,6 @@
               <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="controls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="controls" type="462c0819:PsiDirectoryNode" />
-              <item name="miestas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="miestas" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -190,7 +149,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/styles" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
@@ -237,7 +196,7 @@
       <workItem from="1554976577634" duration="4337000" />
       <workItem from="1555141331100" duration="19397000" />
       <workItem from="1555235978199" duration="4454000" />
-      <workItem from="1555322644141" duration="11044000" />
+      <workItem from="1555322644141" duration="11660000" />
     </task>
     <task id="LOCAL-00001" summary="Created index.html file">
       <created>1554830973802</created>
@@ -257,12 +216,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51123000" />
+    <option name="totallyTimeSpent" value="51739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19867183" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19867183" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -275,9 +234,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33004385" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33004385" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" order="12" visible="true" weight="0.32894737" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32894737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -488,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/paging.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/miestas/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
@@ -509,10 +461,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/paging.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/includes/paging.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="40" />
+        <state relative-caret-position="394">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="32" />
         </state>
       </provider>
     </entry>
