@@ -3,8 +3,6 @@
 if (!empty($_POST['submit'])) {
     include "includes/validator.php";
     $validator = new validator();
-    var_dump($_POST['pavadinimas']);
-    die();
     $nameErr = $validator->validate($_POST['pavadinimas'], "name", 20);
 
     if ($nameErr) {
