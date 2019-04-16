@@ -15,14 +15,14 @@ if (!empty($_POST['submit'])) {
     $dbskErr = $validator->validate($_POST['darbuotoju_skaicius'], "int");
     $cityErr = $validator->validate($_POST['fk_MIESTASid_MIESTAS'], "name", 20);
 
-    var_dump($nameErr);
-    var_dump($adrErr);
-    var_dump($telErr);
-    var_dump($epastErr);
-    var_dump($dirbNuoErr);
-    var_dump($pastErr);
-    var_dump($dbskErr);
-    var_dump($cityErr);
+//    var_dump($nameErr);
+//    var_dump($adrErr);
+//    var_dump($telErr);
+//    var_dump($epastErr);
+//    var_dump($dirbNuoErr);
+//    var_dump($pastErr);
+//    var_dump($dbskErr);
+//    var_dump($cityErr);
 
     if ($nameErr && $adrErr && $telErr && $epastErr && $dirbNuoErr && $dbskErr && $pastErr & $cityErr) {
         $shop = $_POST;

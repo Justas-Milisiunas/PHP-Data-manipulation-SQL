@@ -1,4 +1,4 @@
-<div class="container" style="text-align: center; width: 60%">
+<div class="container" style="text-align: center; width: 30%">
     <h2>Žaislo pridėjimas</h2>
     <?php if (isset($_GET['error']) && $_GET['error'] == 1) {
         echo <<<HTML

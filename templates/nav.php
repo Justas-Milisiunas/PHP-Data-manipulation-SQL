@@ -9,6 +9,9 @@
         <li class="nav-item <?php echo (isset($_GET['module']) ? ($_GET['module'] === 'parduotuve' ? 'active' : '') : '') ?>">
             <a class="nav-link" href="index.php?module=parduotuve&action=list">Parduotuvės</a>
         </li>
+        <li class="nav-item <?php echo (isset($_GET['module']) ? ($_GET['module'] === 'darbuotojas' ? 'active' : '') : '') ?>">
+            <a class="nav-link" href="index.php?module=darbuotojas&action=list">Darbuotojai</a>
+        </li>
         <li class="nav-item <?php echo (isset($_GET['module']) ? ($_GET['module'] === '' ? 'active' : '') : '') ?>">
             <a class="nav-link disabled" href="#">Disabled</a>
         </li>

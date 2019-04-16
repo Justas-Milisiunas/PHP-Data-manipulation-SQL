@@ -62,4 +62,10 @@ class parduotuve
         $query = "SELECT * FROM parduotuve WHERE nr = '{$id}'";
         return mysql::select($query);
     }
+
+    public function getAllShops()
+    {
+        $query = "SELECT nr, pavadinimas FROM parduotuve";
+        return mysql::select($query);
+    }
 }
