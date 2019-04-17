@@ -68,4 +68,10 @@ class miestas
 
         return $data;
     }
+
+    public function getAllCities()
+    {
+        $query = "SELECT * FROM miestas";
+        return mysql::select($query);
+    }
 }
