@@ -1,10 +1,10 @@
 <?php
 
-include 'services/miestas.php';
-$miestas = new miestas();
+include 'services/darbuotojas.php';
+$darbuotojasService = new darbuotojas();
 
 // suskaičiuojame bendrą įrašų kiekį
-$elementCount = $miestas->getCitiesCount();
+$elementCount = $darbuotojasService->getEmployeesCount();
 
 // sukuriame puslapiavimo klasės objektą
 include 'includes/paging.php';
@@ -14,7 +14,7 @@ $paging = new paging(config::NUMBER_OF_ROWS_IN_PAGE);
 $paging->process($elementCount, $pageId);
 
 // išrenkame nurodyto puslapio markes
-$data = $miestas->getCities($paging->size, $paging->first);
+$data = $darbuotojasService->getEmployees($paging->size, $paging->first);
 
-include "templates/miestas/list.php";
+include "templates/darbuotojas/list.php";
 

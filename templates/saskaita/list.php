@@ -1,16 +1,18 @@
-<div class="container">
-    <h2>Miestų sąrašas</h2>
+<div style="width: 50%; margin: auto">
+    <h2>Sąskaitų sąrašas</h2>
     <?php if (isset($_GET['error']) && $_GET['error'] == 2) { ?>
         <div class="alert alert-danger" role="alert">
-            Miestas nebuvo pašalintas. Pirma reikia pašalinti to miesto parduotuves.
+            Sąskaita nebuvo pašalinta. Pirma reikia pašalinti tą sąskaita iš kitų lentelių.
         </div>
     <?php } ?>
     <table class="table">
         <thead>
         <tr style="background: #bfeeff">
-            <th>Pavadinimas</th>
+            <th>Klientas</th>
+            <th>Sąskaitos sukurymo data</th>
+            <th>Suma (€)</th>
             <th style="text-align: right">
-                <a href="index.php?module=miestas&action=add">
+                <a href="index.php?module=saskaita&action=add">
                     <button type="button" class="btn btn-success">Pridėti</button>
                 </a>
             </th>
@@ -18,15 +20,22 @@
         </thead>
         <tbody>
 <?php
+include 'services/klientas.php';
+$klientuService = new klientas();
+
 foreach ($data as $item) {
+    $klientas = $klientuService->getClient($item['fk_KLIENTASasmens_kodas']);
+
     echo <<<HTML
             <tr>
-                <td>{$item['pavadinimas']}</td>
+                <td>{$klientas['vardas']} {$klientas['pavarde']}</td>
+                <td>{$item['data']}</td>
+                <td>{$item['suma']}</td>
                 <td align="right">
-                  <a href='index.php?module=miestas&action=edit&id={$item['id_MIESTAS']}'>
+                  <a href='index.php?module={$module}&action=edit&id={$item['nr']}'>
                     <button type="button" class="btn btn-warning">Readaguoti</button>
-                  </a>
-                  <a href='#' onclick="showConfirmDialog('{$module}', '{$item['id_MIESTAS']}'); return false;">
+                  </a>  
+                  <a href='#' onclick="showConfirmDialog('{$module}', '{$item['nr']}'); return false;">
                     <button type="button" class="btn btn-danger">Pašalinti</button>
                   </a>  
                 </td>

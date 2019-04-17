@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Žaislai</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="styles/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="styles/css/bootstrap-grid.css" rel="stylesheet" type="text/css">
     <link href="styles/css/bootstrap-reboot.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6XWZyRXNLb8t5_cp9aBpp_Z5jlL1rhfNC1zSv5YjhjFnETY-1">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="styles/js/bootstrap.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="includes/main.js"></script>
 </head>
 <body>
 <div>
     <?php
     include "config.php";
     include "includes/mysql.php";
-    include "includes/nav.php";
+    include "templates/nav.php";
     $module = '';
     if (isset($_GET['module'])) {
         $module = mysql::escape($_GET['module']);
@@ -45,7 +46,7 @@
         $actionFile = "controls/{$module}/{$action}.php";
     }
     ?>
-    <div class="container">
+    <div class="" style="width: 100vw">
         <?php
         if (file_exists($actionFile)) {
             include $actionFile;

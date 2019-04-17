@@ -1,16 +1,17 @@
-<div class="container">
-    <h2>Miestų sąrašas</h2>
+<div style="width: 50%; margin: auto">
+    <h2>Užsakymų sąrašas</h2>
     <?php if (isset($_GET['error']) && $_GET['error'] == 2) { ?>
         <div class="alert alert-danger" role="alert">
-            Miestas nebuvo pašalintas. Pirma reikia pašalinti to miesto parduotuves.
+            Užsakymas nebuvo pašalintas. Pirma reikia pašalinti tą užsakymą iš kitų lentelių.
         </div>
     <?php } ?>
     <table class="table">
         <thead>
         <tr style="background: #bfeeff">
-            <th>Pavadinimas</th>
+            <th>Užsakymo data</th>
+            <th>Būsena</th>
             <th style="text-align: right">
-                <a href="index.php?module=miestas&action=add">
+                <a href="index.php?module=uzsakymas&action=add">
                     <button type="button" class="btn btn-success">Pridėti</button>
                 </a>
             </th>
@@ -21,12 +22,10 @@
 foreach ($data as $item) {
     echo <<<HTML
             <tr>
-                <td>{$item['pavadinimas']}</td>
+                <td>{$item['uzsakymo_data']}</td>
+                <td>{$item['busena']}</td>
                 <td align="right">
-                  <a href='index.php?module=miestas&action=edit&id={$item['id_MIESTAS']}'>
-                    <button type="button" class="btn btn-warning">Readaguoti</button>
-                  </a>
-                  <a href='#' onclick="showConfirmDialog('{$module}', '{$item['id_MIESTAS']}'); return false;">
+                  <a href='#' onclick="showConfirmDialog('{$module}', '{$item['nr']}'); return false;">
                     <button type="button" class="btn btn-danger">Pašalinti</button>
                   </a>  
                 </td>

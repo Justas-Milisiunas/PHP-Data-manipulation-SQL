@@ -16,6 +16,7 @@ if (!empty($_POST['submit'])) {
 
         $city['id_MIESTAS'] = mysql::escape($id);
         $result = $miestas->updateCity($city);
+
         header("Location: index.php?module=miestas&action=list");
     } else {
         $data = $_POST;
