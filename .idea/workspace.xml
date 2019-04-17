@@ -78,35 +78,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controls/saskaita/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/saskaita/form.php">
+        <entry file="file://$PROJECT_DIR$/controls/saskaita/delete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
-              <folding>
-                <element signature="n#style#0;n#label#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#fieldset#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#fieldset#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/main.js">
+        <entry file="file://$PROJECT_DIR$/controls/zaislas/delete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -152,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/controls/zaislas/list.php" />
         <option value="$PROJECT_DIR$/templates/paging.php" />
         <option value="$PROJECT_DIR$/controls/miestas/delete.php" />
         <option value="$PROJECT_DIR$/controls/zaislas/delete.php" />
@@ -203,6 +187,7 @@
         <option value="$PROJECT_DIR$/includes/main.js" />
         <option value="$PROJECT_DIR$/controls/saskaita/add.php" />
         <option value="$PROJECT_DIR$/templates/saskaita/form.php" />
+        <option value="$PROJECT_DIR$/controls/saskaita/delete.php" />
       </list>
     </option>
   </component>
@@ -231,57 +216,6 @@
               <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
               <item name="controls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="controls" type="462c0819:PsiDirectoryNode" />
-              <item name="saskaita" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="controls" type="462c0819:PsiDirectoryNode" />
-              <item name="zaislas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="miestas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="parduotuve" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="saskaita" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DB-Laboras-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DB-Laboras-2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="zaislas" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -350,7 +284,7 @@
       <workItem from="1555418393411" duration="744000" />
       <workItem from="1555430367398" duration="1376000" />
       <workItem from="1555494218147" duration="5413000" />
-      <workItem from="1555518707317" duration="10234000" />
+      <workItem from="1555518707317" duration="10850000" />
     </task>
     <task id="LOCAL-00001" summary="Created index.html file">
       <created>1554830973802</created>
@@ -370,13 +304,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109189000" />
+    <option name="totallyTimeSpent" value="109805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18317653" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18317653" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -389,7 +322,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33004385" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33004385" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32894737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -437,13 +370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controls/zaislas/delete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -611,9 +537,6 @@
     <entry file="file://$PROJECT_DIR$/controls/saskaita/edit.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controls/saskaita/delete.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/controls/miestas/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -745,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controls/saskaita/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/saskaita/form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -762,6 +678,27 @@
             <element signature="n#style#0;n#button#0;n#fieldset#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controls/saskaita/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controls/zaislas/delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controls/saskaita/delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
