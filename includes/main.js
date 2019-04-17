@@ -3,8 +3,13 @@ $(window).ready(function () {
     $(".addChild").click(function () {
         table = document.getElementById("parent");
         childRow = document.getElementById("childRow");
+
+        childRowHeader = document.getElementById("childRowHeader");
+        childRowHeader.style.display = "";
+
         newRow = childRow.cloneNode(true);
         newRow.id = 'kopija';
+        newRow.childNodes[1].childNodes[1].value = '';
 
         newRow.style.display = "";
         table.appendChild(newRow);
@@ -21,21 +26,13 @@ function showConfirmDialog(md, removeId) {
     }
 }
 
-// function addChild() {
-//     // document.getElementById("childRow").style.display = "";
-//     let row = document.getElementById("childRow"); // find row to copy
-//     let table = document.getElementById("parent"); // find table to append to
-//     let clone = row.cloneNode(true); // copy children too
-//     clone.style.display = "";
-//     clone.id = "newID"; // change id or other attributes/contents
-//     table.appendChild(clone); // add new row to end of table
-// }
-
 function removeRow(element) {
-    // console.log(element);
-    // let table = document.getElementById('parent').id;
-    // let childRow = document.getElementById('childRow').id;
     let row = element.parentElement.parentElement;
     row.remove();
-    // alert(row);
+
+    rowsCount = document.getElementById("parent").getElementsByTagName("tr").length;
+    if (rowsCount == 2) {
+        childRowHeader = document.getElementById("childRowHeader");
+        childRowHeader.style.display = "none";
+    }
 }

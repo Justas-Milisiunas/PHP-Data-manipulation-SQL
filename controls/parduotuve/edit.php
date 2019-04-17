@@ -48,7 +48,6 @@ if (!empty($_POST['submit'])) {
     }
 } else {
     $data = $parduotuveService->getShop($id)[0];
-    var_dump($data);
 }
 
 include 'templates/parduotuve/form.php';

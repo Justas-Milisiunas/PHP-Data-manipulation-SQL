@@ -30,6 +30,12 @@ class darbuotojas
         return $data;
     }
 
+    public function getAllEmployees()
+    {
+        $query = "SELECT asmens_kodas, vardas, pavarde FROM darbuotojas";
+        return mysql::select($query);
+    }
+
     public function insertEmployee($employee)
     {
         $employee['asmens_kodas'] = mysql::escape($employee['asmens_kodas']);
