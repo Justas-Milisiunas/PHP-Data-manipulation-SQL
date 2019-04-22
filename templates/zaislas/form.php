@@ -7,12 +7,6 @@
         </div>
         HTML;
     }
-
-    if(isset($data) && is_array($data['pavadinimas'])) {
-        $data['pavadinimas'] = $data['pavadinimas'][0];
-        $data['svoris'] = $data['svoris'][0];
-        $data['verte'] = $data['verte'][0];
-    }
 ?>
     <form action="" method="post">
         <div class="form-group">
@@ -26,23 +20,44 @@
                 <tr>
                     <td>
                         <input type="text" class="form-control" id="pavadinimas" name="pavadinimas[]"
-                               value="<?php echo(isset($data['pavadinimas']) ? $data['pavadinimas'] : ''); ?>">
+                               value="<?php echo(isset($data['pavadinimas'][0]) ? (is_array($data['pavadinimas']) ? $data['pavadinimas'][0] : $data['pavadinimas']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="svoris" name="svoris[]"
-                               value="<?php echo(isset($data['svoris']) ? $data['svoris'] : ''); ?>">
+                               value="<?php echo(isset($data['svoris'][0]) ? (is_array($data['svoris']) ? $data['svoris'][0] : $data['svoris']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="verte" name="verte[]"
-                               value="<?php echo(isset($data['verte']) ? $data['verte'] : ''); ?>">
+                               value="<?php echo(isset($data['verte'][0]) ? (is_array($data['verte']) ? $data['verte'][0] : $data['verte']) : ''); ?>">
                     </td>
                     <td>
-                        <!--                        <a href='#' onclick="showConfirmDialog('{$module}', '{$item['id']}'); return false;">-->
-                        <!--                            <button type="button" class="btn btn-danger">Pašalinti</button>-->
-                        <!--                        </a>-->
                     </td>
                 </tr>
-                <?php if($action === 'add')
+                <?php
+                if(isset($data['pavadinimas']) && is_array($data['pavadinimas']) && count($data['pavadinimas']) > 1) {
+                    for($i = 1; $i < count($data['pavadinimas']); $i++)
+                    {
+                        if(empty($data['pavadinimas'][$i]))
+                            continue;
+                        ?>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" name="pavadinimas[]" value="<?php echo $data['pavadinimas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="svoris[]" value="<?php echo $data['svoris'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="verte[]" value="<?php echo $data['verte'][$i]; ?>">
+                            </td>
+                            <td>
+                                <button id="removeChild" onClick="removeRow(this);" class="btn btn-danger" type="button">Pašalinti</button>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                }
+                if($action === 'add')
                 {
                     echo <<<HTML
                     <tr id="childRow" style="display: none;">
@@ -64,7 +79,7 @@
                 }
                 ?>
             </table>
-            <button class="btn btn-info addChild" style="width: 100%; margin-top: 3%; <?php echo $action != 'add' ? 'display: none' : '' ?>" type="button">Pridėti</button>
+            <button class="btn btn-info addChild" style="width: 100%; margin-top: 3%; <?php echo $action === 'edit' ? 'display: none' : ''; ?>">Pridėti</button>
         </div>
         <button style="width: 100%" type="submit" class="btn btn-success" name="submit" value="Issaugoti">Išsaugoti
         </button>

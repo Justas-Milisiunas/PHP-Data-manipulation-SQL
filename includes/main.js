@@ -5,7 +5,8 @@ $(window).ready(function () {
         childRow = document.getElementById("childRow");
 
         childRowHeader = document.getElementById("childRowHeader");
-        childRowHeader.style.display = "";
+        if(childRowHeader != undefined)
+            childRowHeader.style.display = "";
 
         newRow = childRow.cloneNode(true);
         newRow.id = 'kopija';
