@@ -51,4 +51,10 @@ class saskaita
         return mysql::select($query)[0]['AUTO_INCREMENT'];
     }
 
+    public function deleteAccount($id)
+    {
+        $query = "DELETE FROM saskaita WHERE nr = '{$id}'";
+        return mysql::query($query);
+    }
+
 }
