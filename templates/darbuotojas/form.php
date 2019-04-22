@@ -15,18 +15,18 @@ HTML;
 HTML;
     }
 
-    if (isset($data) && is_array($data['asmens_kodas'])) {
-        $data['asmens_kodas'] = $data['asmens_kodas'][0];
-        $data['vardas'] = $data['vardas'][0];
-        $data['pavarde'] = $data['pavarde'][0];
-        $data['dirba_nuo'] = $data['dirba_nuo'][0];
-        $data['atlyginimas'] = $data['atlyginimas'][0];
-        $data['adresas'] = $data['adresas'][0];
-        $data['telefonas'] = $data['telefonas'][0];
-        $data['elektroninis_pastas'] = $data['elektroninis_pastas'][0];
-        $data['pareigos'] = $data['pareigos'][0];
-        $data['fk_PARDUOTUVEnr'] = $data['fk_PARDUOTUVEnr'][0];
-    }
+//    if (isset($data) && is_array($data['asmens_kodas'])) {
+//        $data['asmens_kodas'] = $data['asmens_kodas'][0];
+//        $data['vardas'] = $data['vardas'][0];
+//        $data['pavarde'] = $data['pavarde'][0];
+//        $data['dirba_nuo'] = $data['dirba_nuo'][0];
+//        $data['atlyginimas'] = $data['atlyginimas'][0];
+//        $data['adresas'] = $data['adresas'][0];
+//        $data['telefonas'] = $data['telefonas'][0];
+//        $data['elektroninis_pastas'] = $data['elektroninis_pastas'][0];
+//        $data['pareigos'] = $data['pareigos'][0];
+//        $data['fk_PARDUOTUVEnr'] = $data['fk_PARDUOTUVEnr'][0];
+//    }
 
     ?>
     <form action="" method="post">
@@ -66,35 +66,35 @@ HTML;
                 <tr>
                     <td style="<?php echo $action === 'edit' ? 'display: none' : '' ?>">
                         <input type="text" class="form-control" id="asmens_kodas" name="asmens_kodas[]"
-                               value="<?php echo(isset($data['asmens_kodas']) ? $data['asmens_kodas'] : ''); ?>">
+                               value="<?php echo(isset($data['asmens_kodas']) ? (is_array($data['asmens_kodas']) ? $data['asmens_kodas'][0] : $data['asmens_kodas']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="vardas" name="vardas[]"
-                               value="<?php echo(isset($data['vardas']) ? $data['vardas'] : ''); ?>">
+                               value="<?php echo(isset($data['vardas']) ? (is_array($data['vardas']) ? $data['vardas'][0] : $data['vardas']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="pavarde" name="pavarde[]"
-                               value="<?php echo(isset($data['pavarde']) ? $data['pavarde'] : ''); ?>">
+                               value="<?php echo(isset($data['pavarde']) ? (is_array($data['pavarde']) ? $data['pavarde'][0] : $data['pavarde']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="dirba_nuo" name="dirba_nuo[]"
-                               value="<?php echo(isset($data['dirba_nuo']) ? $data['dirba_nuo'] : ''); ?>">
+                               value="<?php echo(isset($data['dirba_nuo']) ? (is_array($data['dirba_nuo']) ? $data['dirba_nuo'][0] : $data['dirba_nuo']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="atlyginimas" name="atlyginimas[]"
-                               value="<?php echo(isset($data['atlyginimas']) ? $data['atlyginimas'] : ''); ?>">
+                               value="<?php echo(isset($data['atlyginimas']) ? (is_array($data['atlyginimas']) ? $data['atlyginimas'][0] : $data['atlyginimas']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="adresas" name="adresas[]"
-                               value="<?php echo(isset($data['adresas']) ? $data['adresas'] : ''); ?>">
+                               value="<?php echo(isset($data['adresas']) ? (is_array($data['adresas']) ? $data['adresas'][0] : $data['adresas']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="telefonas" name="telefonas[]"
-                               value="<?php echo(isset($data['telefonas']) ? $data['telefonas'] : ''); ?>">
+                               value="<?php echo(isset($data['telefonas']) ? (is_array($data['telefonas']) ? $data['telefonas'][0] : $data['telefonas']) : ''); ?>">
                     </td>
                     <td>
                         <input type="text" class="form-control" id="elektroninis_pastas" name="elektroninis_pastas[]"
-                               value="<?php echo(isset($data['elektroninis_pastas']) ? $data['elektroninis_pastas'] : ''); ?>">
+                               value="<?php echo(isset($data['elektroninis_pastas']) ? (is_array($data['elektroninis_pastas']) ? $data['elektroninis_pastas'][0] : $data['elektroninis_pastas']) : ''); ?>">
                     </td>
                     <td>
                         <select name="pareigos[]" class="form-control">
@@ -106,7 +106,8 @@ HTML;
 
                             foreach ($pareigos as $key => $val)  {
                                 $selected = "";
-                                if(isset($data['pareigos']) && $data['pareigos'] == $val['id_darbuotojo_pareigos']) {
+                                if(isset($data['pareigos']) &&  (is_array($data['pareigos']) && $data['pareigos'][0] == $val['id_darbuotojo_pareigos'] ||
+                                        !is_array($data['pareigos']) && $data['pareigos'] == $val['id_darbuotojo_pareigos'])) {
                                     $selected = " selected='selected'";
                                 }
 
@@ -120,6 +121,62 @@ HTML;
                     </td>
                 </tr>
                 <?php
+                if(isset($data['asmens_kodas']) && is_array($data['asmens_kodas']) && count($data['asmens_kodas']) > 1)
+                {
+                    for($i = 1; $i < count($data['asmens_kodas']); $i++)
+                    {
+                        if(empty($data['asmens_kodas'][$i]))
+                            continue;
+
+                        ?>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" name="asmens_kodas[]" value="<?php echo $data['asmens_kodas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="vardas[]" value="<?php echo $data['vardas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="pavarde[]" value="<?php echo $data['pavarde'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="dirba_nuo[]" value="<?php echo $data['dirba_nuo'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="atlyginimas[]" value="<?php echo $data['atlyginimas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="adresas[]" value="<?php echo $data['adresas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="telefonas[]" value="<?php echo $data['telefonas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="elektroninis_pastas[]" value="<?php echo $data['elektroninis_pastas'][$i]; ?>">
+                            </td>
+                            <td>
+                                <select name="pareigos[]" class="form-control">
+                                <?php
+                                    foreach ($pareigos as $key => $val) {
+                                        $selected = "";
+                                        if (isset($data['pareigos'][$i]) && $data['pareigos'][$i] == $val['id_darbuotojo_pareigos']) {
+                                            $selected = " selected='selected'";
+                                        }
+                                        echo <<<HTML
+                                            <option{$selected} value="{$val['id_darbuotojo_pareigos']}">{$val['id_darbuotojo_pareigos']} > {$val['name']}</option>
+                                            HTML;
+                                    }
+                                ?>
+                                </select>
+                            </td>
+                            <td>
+                                <button id="removeChild" onClick="removeRow(this)" class="btn btn-danger" type="button">Pašalinti</button>
+                            </td>
+                        </tr>
+
+                        <?php
+                    }
+                }
                 if($action === 'add')
                 {
                     echo <<<HTML
