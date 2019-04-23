@@ -51,7 +51,11 @@
             </select>
             <label style="margin-top: 1%">Sąskaitos suma:</label>
             <input type="text" class="form-control" name="suma"
-                   value="<?php echo isset($data['suma']) ? $data['suma'] : '' ?>">
+                   value="<?php if($action === 'add' || isset($_GET['error'])) {
+                       echo isset($data['suma']) ? $data['suma'] : '';
+                   } else {
+                       echo isset($data[0]['suma']) ? $data[0]['suma'] : '';
+                   }?>">
             <fieldset class="border p-2">
                 <legend class="w-auto">Mokėjimai</legend>
                 <table id="parent">

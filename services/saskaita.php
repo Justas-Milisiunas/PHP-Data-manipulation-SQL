@@ -12,6 +12,12 @@ class saskaita
         return $data['COUNT(nr)'];
     }
 
+    public function getAccount($id)
+    {
+        $query = "SELECT * FROM saskaita WHERE nr = '{$id}'";
+        return mysql::select($query);
+    }
+
     public function getAccounts($limit = NULL, $offset = NULL)
     {
         $limitOffsetString = "";
@@ -38,6 +44,13 @@ class saskaita
         $query = "INSERT INTO saskaita(data, suma, fk_DARBUOTOJASasmens_kodas, fk_KLIENTASasmens_kodas)
                     VALUES('{$saskaita['data']}', '{$saskaita['suma']}', '{$saskaita['fk_DARBUOTOJASasmens_kodas']}',
                            '{$saskaita['fk_KLIENTASasmens_kodas']}')";
+        return mysql::query($query);
+    }
+
+    public function updateAccount($account)
+    {
+        $query = "UPDATE saskaita SET suma = '{$account['suma']}', fk_DARBUOTOJASasmens_kodas = '{$account['fk_DARBUOTOJASasmens_kodas']}',
+                                    fk_KLIENTASasmens_kodas = '{$account['fk_KLIENTASasmens_kodas']}' WHERE nr = '{$account['nr']}'";
         return mysql::query($query);
     }
 

@@ -18,4 +18,11 @@ class mokejimas
         return mysql::query($query);
     }
 
+    public function getPaymentsWhereAccountIs($id)
+    {
+        $query = "SELECT * FROM mokejimas WHERE fk_SASKAITAnr = '{$id}'";
+        $result = mysql::select($query);
+
+        return $result;
+    }
 }
