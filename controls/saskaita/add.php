@@ -31,6 +31,7 @@ if (!empty($_POST['submit'])) {
             }
 
             if(!$arVisiGeri) {
+                $data = $_POST;
                 $_GET['error'] = 2;
             } else {
                 $nextServiceID = $saskService->getNextID();

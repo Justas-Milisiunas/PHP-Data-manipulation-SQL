@@ -15,8 +15,8 @@
         <li class="nav-item <?php echo (isset($_GET['module']) ? ($_GET['module'] === 'saskaita' ? 'active' : '') : '') ?>">
             <a class="nav-link" href="index.php?module=saskaita&action=list">Sąskaita</a>
         </li>
-<!--        <li class="nav-item --><?php //echo (isset($_GET['module']) ? ($_GET['module'] === 'uzsakymas' ? 'active' : '') : '') ?><!--">-->
-<!--            <a class="nav-link" href="index.php?module=uzsakymas&action=list">Užsakymai</a>-->
-<!--        </li>-->
+        <li class="nav-item <?php echo (isset($_GET['module']) ? ($_GET['module'] === 'uzsakymas' ? 'active' : '') : '') ?>">
+            <a class="nav-link" href="index.php?module=uzsakymas&action=list">Užsakymai</a>
+        </li>
     </ul>
 </nav>

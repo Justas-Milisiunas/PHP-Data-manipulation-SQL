@@ -10,6 +10,9 @@
         <tr style="background: #bfeeff">
             <th>Užsakymo data</th>
             <th>Būsena</th>
+            <th>Užsakiusi parduotuvė</th>
+            <th>Užsakytas fabrikas</th>
+            <th></th>
             <th style="text-align: right">
                 <a href="index.php?module=uzsakymas&action=add">
                     <button type="button" class="btn btn-success">Pridėti</button>
@@ -18,21 +21,51 @@
         </tr>
         </thead>
         <tbody>
-<?php
-foreach ($data as $item) {
-    echo <<<HTML
+        <?php
+        include 'services/fabrikas.php';
+        include 'services/parduotuve.php';
+        $fabrikuService = new fabrikas();
+        $pardService = new parduotuve();
+
+        foreach ($data as $item) {
+            $fabrikas = $fabrikuService->getFactory($item['fk_FABRIKASid_FABRIKAS'])[0]['pavadinimas'];
+            $parduotuve = $pardService->getShop($item['fk_PARDUOTUVEnr'])[0]['pavadinimas'];
+
+            $busena = '';
+            switch ($item['busena']) {
+                case 1:
+                    $busena = 'užsakyta';
+                    break;
+                case 2:
+                    $busena = 'patvirtinta';
+                    break;
+                case 3:
+                    $busena = 'nutraukta';
+                    break;
+                case 4:
+                    $busena = 'užbaigta';
+                    break;
+            }
+            ?>
             <tr>
-                <td>{$item['uzsakymo_data']}</td>
-                <td>{$item['busena']}</td>
+                <td><?php echo $item['uzsakymo_data']; ?></td>
+                <td><?php echo $busena; ?></td>
+                <td><?php echo $parduotuve; ?></td>
+                <td><?php echo $fabrikas; ?></td>
+                <td>
+                    <a href='<?php echo "index.php?module={$module}&action=edit&id={$item['nr']}"; ?>'>
+                    <button type="button" class="btn btn-warning">Readaguoti</button>
+                    </a>
+                </td>
                 <td align="right">
-                  <a href='#' onclick="showConfirmDialog('{$module}', '{$item['nr']}'); return false;">
-                    <button type="button" class="btn btn-danger">Pašalinti</button>
-                  </a>  
+                    <a href='#' onclick="showConfirmDialog('<?php echo $module; ?>', '<?php echo $item['nr']; ?>'); return false;">
+                        <button type="button" class="btn btn-danger">Pašalinti</button>
+                    </a>
                 </td>
             </tr>
-    HTML;
-}
-?>
+            <?php
+        }
+        ?>
         </tbody>
     </table>
     <?php include 'templates/paging.php'?>

@@ -12,6 +12,12 @@ class saskaita
         return $data['COUNT(nr)'];
     }
 
+    public function getAccount($id)
+    {
+        $query = "SELECT * FROM saskaita WHERE nr = '{$id}'";
+        return mysql::select($query);
+    }
+
     public function getAccounts($limit = NULL, $offset = NULL)
     {
         $limitOffsetString = "";
@@ -41,6 +47,13 @@ class saskaita
         return mysql::query($query);
     }
 
+    public function updateAccount($account)
+    {
+        $query = "UPDATE saskaita SET suma = '{$account['suma']}', fk_DARBUOTOJASasmens_kodas = '{$account['fk_DARBUOTOJASasmens_kodas']}',
+                                    fk_KLIENTASasmens_kodas = '{$account['fk_KLIENTASasmens_kodas']}' WHERE nr = '{$account['nr']}'";
+        return mysql::query($query);
+    }
+
     public function getNextID()
     {
 
@@ -49,6 +62,12 @@ class saskaita
                     WHERE TABLE_SCHEMA = 'zaislai'
                     AND   TABLE_NAME   = 'saskaita'";
         return mysql::select($query)[0]['AUTO_INCREMENT'];
+    }
+
+    public function deleteAccount($id)
+    {
+        $query = "DELETE FROM saskaita WHERE nr = '{$id}'";
+        return mysql::query($query);
     }
 
 }

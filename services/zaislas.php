@@ -10,6 +10,12 @@ class zaislas
         return mysql::select($query);
     }
 
+    public function getAllToys()
+    {
+        $query = "SELECT * FROM zaislas";
+        return mysql::select($query);
+    }
+
     public function getToys($limit = NULL, $offset = NULL)
     {
         $limitOffsetString = "";
