@@ -1,12 +1,15 @@
 <?php
 
 include 'services/uzsakymas.php';
+include  'services/zaisloUzsakymas.php';
+
 $uzsakService = new uzsakymas();
+$zaisloUzsakService = new zaisloUzsakymas();
 
 if (!empty($id)) {
 
     $error = '';
-    if (!$uzsakService->deleteOrder($id)) {
+    if (!$zaisloUzsakService->deleteOrdersWhereID($id) || !$uzsakService->deleteOrder($id)) {
         $error = '&error=2';
     }
 

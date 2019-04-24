@@ -8,7 +8,6 @@ $zaisluService = new zaislas();
 $zaisloUzsakService = new zaisloUzsakymas();
 
 if (!empty($_POST['submit'])) {
-//    var_dump($_POST);
     include "includes/validator.php";
     $validator = new validator();
     $uzsakPardErr = $validator->validate($_POST['fk_PARDUOTUVEnr'], "int");
@@ -37,23 +36,24 @@ if (!empty($_POST['submit'])) {
         } else {
             $currentDate = date('Y-m-d');
 
-            $uzsakymas['uzsakymo_data'] = $currentDate;
+            $uzsakymas['nr'] = $id;
             $uzsakymas['busena'] = $_POST['busena'];
             $uzsakymas['fk_FABRIKASid_FABRIKAS'] = $_POST['fb_FABRIKASid_FABRIKAS'];
             $uzsakymas['fk_PARDUOTUVEnr'] = $_POST['fk_PARDUOTUVEnr'];
 
-            $result = $uzsakService->insertOrder($uzsakymas);
+            $result = $uzsakService->updateOrder($uzsakymas);
 
             if (!$result) {
                 $_GET['error'] = 4;
                 $data = $_POST;
             } else {
+                $zaisloUzsakService->deleteOrdersWhereID($id);
                 foreach ($_POST['fk_ZAISLASid'] as $key => $value) {
                     if (empty($value) && empty($_POST['Kiekis'][$key]))
                         continue;
 
                     $zaisloUzsakymas['Kiekis'] = $_POST['Kiekis'][$key];
-                    $zaisloUzsakymas['fk_UZSAKYMASnr'] = $uzsakService->getNextID() - 1;
+                    $zaisloUzsakymas['fk_UZSAKYMASnr'] = $id;
                     $zaisloUzsakymas['fk_ZAISLASid'] = $value;
 
                     $result = $zaisloUzsakService->insertOrder($zaisloUzsakymas);
@@ -73,6 +73,19 @@ if (!empty($_POST['submit'])) {
         $data = $_POST;
         $_GET['error'] = 1;
     }
+} else {
+    $data = $uzsakService->getOrder($id)[0];
+    $result = $zaisloUzsakService->getOrdersWhereID($id);
+
+    $zaisluID = array();
+    $kiekiai = array();
+    foreach ($result as $key => $value) {
+        $zaisluID[$key] = $value['fk_ZAISLASid'];
+        $kiekiai[$key] = $value['Kiekis'];
+    }
+
+    $data['fk_ZAISLASid'] = $zaisluID;
+    $data['Kiekis'] = $kiekiai;
 }
 
 include 'templates/uzsakymas/form.php';
