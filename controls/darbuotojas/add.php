@@ -42,6 +42,14 @@ if (!empty($_POST['submit'])) {
         }
     }
 
+//    var_dump($_POST['asmens_kodas'][0]);
+//    die();
+    if($_POST['asmens_kodas'][0] == null) {
+        $_GET['error'] = 1;
+
+        $arVisiGeri = false;
+    }
+
     if($arVisiGeri)
     {
         for($i = 0; $i < count($_POST['asmens_kodas']); $i++)
@@ -71,7 +79,7 @@ if (!empty($_POST['submit'])) {
         }
     }
 
-    if(!isset($_GET['error']))
+    if(!isset($_GET['error']) && $arVisiGeri)
         header("Location: index.php?module={$module}&action=list");
 }
 
