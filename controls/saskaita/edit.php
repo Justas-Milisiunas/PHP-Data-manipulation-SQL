@@ -73,6 +73,8 @@ if (!empty($_POST['submit'])) {
     }
 } else {
     $data = $saskService->getAccount($id);
+//    var_dump($data);
+//    die();
     $result = $mokService->getPaymentsWhereAccountIs($id);
 
     $visiMok = array();
