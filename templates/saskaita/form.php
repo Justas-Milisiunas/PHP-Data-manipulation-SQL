@@ -12,6 +12,9 @@
             Neteisingai suvesti mokėjimų duomenys
         </div><?php
     }
+//    var_dump($darbuotojai);
+//    die();
+//    var_dump($data[0]['fk_DARBUOTOJASasmens_kodas']);
     ?>
     <form action="" method="post">
         <div class="form-group">
@@ -21,13 +24,11 @@
                 include 'services/darbuotojas.php';
                 $darbuotojuService = new darbuotojas();
                 $darbuotojai = $darbuotojuService->getAllEmployees();
-
                 foreach ($darbuotojai as $key => $val) {
                     $selected = "";
-                    if (isset($data['fk_DARBUOTOJASasmens_kodas']) && $data['fk_DARBUOTOJASasmens_kodas'] == $val['asmens_kodas']) {
+                    if (isset($data[0]['fk_DARBUOTOJASasmens_kodas']) && $data[0]['fk_DARBUOTOJASasmens_kodas'] == $val['asmens_kodas']) {
                         $selected = " selected='selected'";
                     }
-
                     echo "<option{$selected} value='{$val['asmens_kodas']}'>{$val['vardas']} {$val['pavarde']}</option>";
                 }
                 ?>
@@ -41,7 +42,7 @@
 
                 foreach ($klientai as $key => $val) {
                     $selected = "";
-                    if (isset($data['fk_KLIENTASasmens_kodas']) && $data['fk_KLIENTASasmens_kodas'] == $val['asmens_kodas']) {
+                    if (isset($data[0]['fk_KLIENTASasmens_kodas']) && $data[0]['fk_KLIENTASasmens_kodas'] == $val['asmens_kodas']) {
                         $selected = " selected='selected'";
                     }
 
