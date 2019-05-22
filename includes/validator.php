@@ -3,9 +3,9 @@
 class validator
 {
     public $regexes = Array(
-        'date' => "/^[0-9]{4}[-/][0-9]{1,2}[-/][0-9]{1,2}$/", // 2016-01-15
+        'date' => "/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/", // 2016-01-15
         'datetime' => "^[0-9]{4}[-/][0-9]{1,2}[-/][0-9]{1,2} [0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2})?\$", // 2016-01-15 12:12, 2016-01-15 12:12:00
-        'positivenumber' => "^[0-9\.]+\$", // teigiami sveikieji skaičiai bei skaičiai su kableliu (pvz.: 25.14)
+        'positivenumber' => "/^[0-9]+$/", // teigiami sveikieji skaičiai bei skaičiai su kableliu (pvz.: 25.14)
         'price' => "^([1-9][0-9]*|0)(\.[0-9]{2})?\$", // kaina (pvz.: 25.99)
         'anything' => "/^[\d\D]{1,}/$", // bet koks simbolis
         'alfanum' => "/^[0-9a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ ,.-_\\s\?\!]+/$", // tekstas
@@ -26,7 +26,7 @@ class validator
     public function validate($item, $type, $maxLength = 0)
     {
         $filter = false;
-        switch($type) {
+        switch ($type) {
             case 'email':
                 $item = substr($item, 0, 254);
                 $filter = FILTER_VALIDATE_EMAIL;
@@ -57,10 +57,11 @@ class validator
                 $length = "{$item}";
                 $length = strlen($length);
                 return ($filter === false) ? false : filter_var($item, $filter) !== false ? $length == 11 : false;
-                break;
+            case 'positivenumber':
+                return (boolean)preg_match($this->regexes[$type], $item);
         }
 
-        return  (!empty($item) && strlen($item) > 0 && strlen($item) <= $maxLength && preg_match($this->regexes[$type], $item));
+        return (!empty($item) && strlen($item) > 0 && strlen($item) <= $maxLength && preg_match($this->regexes[$type], $item));
     }
 
 }

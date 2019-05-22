@@ -72,4 +72,31 @@ class uzsakymas
         return mysql::query($query);
     }
 
+    public function selectForReport($dateFrom, $dateUntil, $minToysCount, $maxToysCount)
+    {
+        $query = "
+        SELECT
+            uzsakymas.uzsakymo_data as data,
+            uzsakymo_busenos.name as busena,
+            SUM(zaislo_uzsakymas.Kiekis) AS kiekis,
+            SUM(zaislas.verte) as kaina,
+            fabrikas.pavadinimas as fabrikas
+        FROM
+            uzsakymas
+        LEFT JOIN uzsakymo_busenos ON uzsakymas.busena = uzsakymo_busenos.id_uzsakymo_busenos
+        LEFT JOIN fabrikas ON uzsakymas.fk_FABRIKASid_FABRIKAS = fabrikas.id_FABRIKAS
+        LEFT JOIN zaislo_uzsakymas ON zaislo_uzsakymas.fk_UZSAKYMASnr = uzsakymas.nr
+        WHERE
+            uzsakymas.uzsakymo_data >= '{$dateFrom}' AND uzsakymas.uzsakymo_data <= '{$dateUntil}'
+        GROUP BY
+            uzsakymas.uzsakymo_data
+        HAVING
+            kiekis > '{$minToysCount}' AND kiekis < '{$maxToysCount}'
+        ORDER BY
+            uzsakymas.uzsakymo_data ASC
+        ";
+
+        return mysql::select($query);
+    }
+
 }

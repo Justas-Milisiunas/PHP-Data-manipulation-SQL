@@ -12,7 +12,11 @@
             <th>Būsena</th>
             <th>Užsakiusi parduotuvė</th>
             <th>Užsakytas fabrikas</th>
-            <th></th>
+            <th style="width: 25%; text-align: right">
+                <a href="index.php?module=uzsakymas&action=report">
+                    <button type="button" class="btn btn-success">Sukurti ataskaitą</button>
+                </a>
+            </th>
             <th style="text-align: right">
                 <a href="index.php?module=uzsakymas&action=add">
                     <button type="button" class="btn btn-success">Pridėti</button>
@@ -52,7 +56,7 @@
                 <td><?php echo $busena; ?></td>
                 <td><?php echo $parduotuve; ?></td>
                 <td><?php echo $fabrikas; ?></td>
-                <td>
+                <td style="text-align: right">
                     <a href='<?php echo "index.php?module={$module}&action=edit&id={$item['nr']}"; ?>'>
                     <button type="button" class="btn btn-warning">Readaguoti</button>
                     </a>
