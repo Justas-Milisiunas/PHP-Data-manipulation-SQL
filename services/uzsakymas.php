@@ -79,7 +79,6 @@ class uzsakymas
             uzsakymas.uzsakymo_data as data,
             uzsakymo_busenos.name as busena,
             SUM(zaislo_uzsakymas.Kiekis) AS kiekis,
-            SUM(zaislas.verte) as kaina,
             fabrikas.pavadinimas as fabrikas
         FROM
             uzsakymas
