@@ -35,6 +35,12 @@ class uzsakymas
         return mysql::query($query);
     }
 
+    public function getStatusName($id)
+    {
+        $query = "SELECT uzsakymo_busenos.name FROM uzsakymo_busenos WHERE uzsakymo_busenos.id_uzsakymo_busenos = '{$id}'";
+        return mysql::select($query)[0];
+    }
+
     public function getAllStatuses()
     {
         $query = "SELECT * FROM uzsakymo_busenos";
@@ -72,10 +78,32 @@ class uzsakymas
         return mysql::query($query);
     }
 
-    public function selectForReport($dateFrom, $dateUntil, $minToysCount, $maxToysCount)
+    public function getOrderToys($orderId)
+    {
+        $query = "
+        SELECT 
+            zaislas.pavadinimas as name,
+            SUM(zaislo_uzsakymas.Kiekis) as kiekis,
+            zaislas.verte as verte
+        FROM
+            zaislas
+        INNER JOIN zaislo_uzsakymas ON zaislo_uzsakymas.fk_ZAISLASid = zaislas.id
+        WHERE
+            zaislo_uzsakymas.fk_UZSAKYMASnr = '{$orderId}'
+        GROUP BY 
+            name
+        ORDER BY 
+            kiekis
+        ";
+
+        return mysql::select($query);
+    }
+
+    public function getForReport($dateFrom, $dateUntil, $minToysCount, $maxToysCount, $status)
     {
         $query = "
         SELECT
+            uzsakymas.nr as id,
             uzsakymas.uzsakymo_data as data,
             uzsakymo_busenos.name as busena,
             SUM(zaislo_uzsakymas.Kiekis) AS kiekis,
@@ -86,7 +114,7 @@ class uzsakymas
         LEFT JOIN fabrikas ON uzsakymas.fk_FABRIKASid_FABRIKAS = fabrikas.id_FABRIKAS
         LEFT JOIN zaislo_uzsakymas ON zaislo_uzsakymas.fk_UZSAKYMASnr = uzsakymas.nr
         WHERE
-            uzsakymas.uzsakymo_data >= '{$dateFrom}' AND uzsakymas.uzsakymo_data <= '{$dateUntil}'
+            uzsakymas.uzsakymo_data >= '{$dateFrom}' AND uzsakymas.uzsakymo_data <= '{$dateUntil}' AND uzsakymas.busena = '{$status}'
         GROUP BY
             uzsakymas.uzsakymo_data
         HAVING
